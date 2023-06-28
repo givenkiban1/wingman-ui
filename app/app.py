@@ -3,9 +3,9 @@ import requests
 import os
 
 
-param1 = st.slider('Select a number', 1, 10, 3)
+param1 = st.slider('Select a number', 1, 15, 3)
 
-param2 = st.slider('Select another number', 1, 10, 3)
+param2 = st.slider('Select another number', 1, 15, 3)
 
 url = os.environ.get('API_URI') + '/predict'
 

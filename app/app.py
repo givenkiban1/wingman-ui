@@ -31,6 +31,7 @@ if input_file is not None:
     data_keys = data[0].split(',')
     data_numeric = data[1].split(',')
 
+    # creating a dictionary with keys and values
     for index, key in enumerate(data_keys):
         data_obj[key] = [data_numeric[index]]
 

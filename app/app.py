@@ -2,10 +2,11 @@ import streamlit as st
 import requests
 import pandas as pd
 import time
-import pyautogui
+# import pyautogui
 
 def clear_page():
-    pyautogui.hotkey("ctrl","F5")
+    # pyautogui.hotkey("ctrl","F5")
+    pass
 
 st.title('Wingman prediction')
 

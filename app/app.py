@@ -50,7 +50,7 @@ if input_file is not None:
         'values': data_numeric[1:]
     }
 
-    # st.write(data)
+    st.write(data)
     # print(data)
 
 else:

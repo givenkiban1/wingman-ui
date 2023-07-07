@@ -3,6 +3,5 @@ pandas
 numpy
 requests
 pyautogui
-matplotlib
 matplotlib.pyplot
 seaborn

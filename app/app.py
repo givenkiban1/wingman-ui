@@ -50,7 +50,7 @@ if input_file is not None:
         'values': data_numeric[1:]
     }
 
-    st.write(data)
+    # st.write(data)
     # print(data)
 
 else:
@@ -72,7 +72,7 @@ if st.button('Make prediction', disabled=input_file is None):
 
     resp_data = response.json()
 
-    st.write(resp_data)
+    # st.write(resp_data)
 
 
     st.text('Prediction : ' + resp_data['prediction'])

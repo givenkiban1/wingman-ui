@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import pandas as pd
 import time
+import matplotlib.pyplot as plt
+import seaborn as sns
 # import pyautogui
 
 def clear_page():
@@ -10,13 +12,12 @@ def clear_page():
 
 st.title('Wingman prediction')
 
-st.divider()
-
-# st.snow()
+# st.divider()
 
 input_file = st.file_uploader("Upload a CSV file", type=(['csv']), accept_multiple_files=False, on_change=clear_page)
 
 if input_file is not None:
+
     # To read file as bytes:
     bytes_data = input_file.getvalue()
 
@@ -45,7 +46,7 @@ if input_file is not None:
 
 def predict():
     with loading:
-        time.sleep(5)
+        time.sleep(3)
     st.success('Done!')
 
 
@@ -69,3 +70,47 @@ st.button('Reset', on_click=clear_page)
 # response = requests.get(url, params=params)
 
 # st.text(response.json())
+
+
+# ADV
+subcat_legend = {
+    1: "Handling",
+    2: "Systems",
+    3: "Structural",
+    4: "Propeller",
+    5: "Power Plant",
+    6: "Oper/Perf/Capability",
+    7: "Fluids / Misc Hardware"
+}
+
+subcat_labels = [val for key, val in subcat_legend.items()]
+
+# Placeholder till the actual proba is returned from the api call
+proba = [[
+    0.68633303,
+    15.64000318,
+    2.4907375 ,
+    2.78677454,
+    16.5781061 ,
+    53.05815674,
+    8.75988892
+    ]]
+
+plt.pie(
+    proba[0],
+    labels=subcat_labels,
+    explode=(0, 0, 0, 0, 0, 0.05, 0),
+    autopct='%1.1f%%',
+    startangle=90,
+    pctdistance=1.15,
+    labeldistance=1.3,
+    colors=sns.color_palette("Accent", 7)
+    )
+
+center_circle = plt.Circle((0, 0), 0.75, fc='white')
+prob_fig = plt.gcf()
+prob_fig.gca().add_artist(center_circle)
+
+plt.axis('equal')
+
+st.pyplot(prob_fig)

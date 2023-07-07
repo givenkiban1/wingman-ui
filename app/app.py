@@ -72,6 +72,8 @@ if st.button('Make prediction', disabled=input_file is None):
 
     resp_data = response.json()
 
+    st.write(resp_data)
+
 
     st.text('Prediction : ' + resp_data['prediction'])
 
